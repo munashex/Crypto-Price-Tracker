@@ -1,23 +1,27 @@
-import React from 'react' 
-import './App.css' 
-import Header from './components/Header'   
-import Coins  from './components/Coins'  
+import Navbar from './components/Navbar'
+import {useState, createContext} from 'react'
+import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+export const themeContext = createContext(null) 
+import Coins from './Pages/Coins'
+import Details from './Pages/details'
 
 
-
-export const userTheme = React.createContext(null)
-
-const App =() => { 
-
-  const [theme, setTheme] = React.useState('dark')
-
+function App() { 
+  const [theme, setTheme] = useState('light') 
+  
   return (
-    <userTheme.Provider value={{theme, setTheme}}>
-        <div id={theme}> 
-        <Header/> 
-        <Coins/> 
-        </div>  
-    </userTheme.Provider>
+   <themeContext.Provider value={{theme, setTheme}}>
+      <div id={theme}>
+        <BrowserRouter>
+        <Navbar/>
+        <Routes>
+          <Route path="/" element={<Coins/>}/> 
+          <Route path="/details/:id" element={<Details/>}/>
+        </Routes>
+        </BrowserRouter>
+      </div>
+   </themeContext.Provider>
   )
 }
 

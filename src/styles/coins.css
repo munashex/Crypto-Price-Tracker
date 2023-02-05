@@ -1,0 +1,103 @@
+#light {
+    color: black
+}
+#dark {
+    color: white
+}
+.crypto_Marker_Title{
+    text-align-last: center;
+}
+
+.symbol{
+     border: solid 1px grey;
+     padding: .2em;
+     border-radius: .6em;        
+}
+
+.image {
+    height: 1.6em;
+   align-self: center; 
+   margin-top: 0.5em;
+}
+
+.singleCoinContainer {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 1em;  
+   align-items: center;
+    margin-top: -0.7em; 
+}
+
+.tokenName {
+    margin-left: 0.4em; 
+    margin-top: 0.3em;
+}
+.actualMarket, .actualPrize,  .actual_supply, .max_supply{
+    text-align: center;
+}
+
+.searchInput {
+    width: 40%;
+    margin-left: 30%; 
+    height: 20px;
+    outline: none; 
+    margin-bottom: 2em;
+  }
+
+  
+
+@media (min-width: 360px) {
+   
+    
+    .max_supply {
+        display: none;
+    }
+    .marketPrize {
+        position: absolute; 
+        margin-left: 37%; 
+     }
+    
+     
+     .price {
+         position: absolute; 
+         margin-left: 80%; 
+         margin-top: .0.7em;
+     }
+
+     .actualMarket{
+        margin-top: -1.3em; 
+     }
+     .actualPrize {
+         margin-top: -1.3em; 
+     }
+   
+}
+
+@media (min-width: 800px) {
+   
+.max_supply {
+    display: inline; 
+    margin-right: 20%;
+}
+.actualSupply {
+    margin-top: -1.3em;
+}
+.marketPrize {
+    position: absolute; 
+    left: 49%
+}
+
+.price {
+    position: absolute; 
+    right: 35%;
+    text-align: center;
+}
+
+}
+
+/* tablet */ 
+
+.actualCoin {
+    margin-top: 0.5em;
+}

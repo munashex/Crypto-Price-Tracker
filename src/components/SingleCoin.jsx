@@ -1,34 +1,40 @@
-import React from 'react' 
-import '../App.css'
+ import '../styles/coins.css'
+ import { useNavigate} from 'react-router-dom'
 
-function SingleCoin({current_price, image, symbol, market_cap, total_volume, total_supply}) {  
- 
-    let round = Math.round(current_price)
+function SingleCoin({id, symbol,  image, market_cap, current_price, max_supply}) {   
+
+  let max = max_supply === null ? 0 : parseInt(max_supply).toLocaleString().slice(0, 7)
+  let  navigate = useNavigate()
+
 
   return (
-    <div>
-    <div className="each_coin">   
-    <span className="coinName"> 
-     <img src={image} className="coinImage"/>  
-     <small>{symbol}</small> 
-     </span>
-     
-     <span className="current_price">
-        <small>${round}</small>
-     </span>
-      
-       <span className="market_cap">  
-       <small className="mkt_cap">market </small> 
-      <small>${market_cap}</small>
-       </span>
+    <div  onClick={() => navigate(`details/${id}`)} className="singleCoinContainer" 
+    style={{borderBottom: 'dashed 0.4px grey', cursor: 'pointer'}}> 
 
-      <span className="totalVolume">  
-      <small className="mkt_cap">total volume  </small>
-      <small>${total_volume}</small>
-      </span> 
+<div className="actualCoin">
+<img src={image} alt={symbol} className="image"/> 
+<h5 className="tokenName">{id} <small className="symbol">{symbol}</small></h5> 
+</div>
 
 
-    </div> 
+  
+<div className="marketPrize">
+ <h5>market price</h5> 
+ <h5 className="actualMarket">${parseInt(market_cap).toLocaleString()}</h5>
+</div>
+
+<div className="price">
+<h5 >price</h5> 
+<h5 className="actualPrize">${parseInt(current_price).toLocaleString()}</h5>
+</div>
+
+<div className="max_supply">
+  <h5>max supply</h5> 
+  <h5 className="actualSupply">${max}</h5>
+</div>
+
+
+
     </div>
   )
 }
